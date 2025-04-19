@@ -1,0 +1,504 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #302e2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+
+
+}
+#section1{
+    width: 65%;
+    height: 100%;
+    display: flex;
+}
+#timerContainer{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#timer{
+    height: 25%;
+    width: 50%;
+    background-color: rgb(61,58,56);
+    padding: 15px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    border-radius: 15px;
+}
+.timeText {
+    font-size: 47px; /* Text ka size */
+    color: rgb(255, 255, 255); /* Text ka color */
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+#chess_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.player1, .player2 {
+    width: 600px; 
+    height: 30px;
+    /* background-color: rgb(61,58,56); */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 30px;
+}
+.playerName{
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+#root {
+    height: 80%;
+    width: 100%;
+    margin:10px 0;
+    position: relative;
+}
+.corner-text-bottom {
+    position: absolute;
+    bottom: 5px;  
+    right: 5px;   
+    font-size: 20px; 
+    color: black; 
+    font-weight: bold; 
+}
+.corner-text-left {
+    position: absolute;
+    top: 5px;  
+    left: 5px;   
+    font-size: 20px; 
+    color: black; 
+    font-weight: bold; 
+}
+#section2{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#playedMove,#login{
+     width: 60%;
+     height: 50%;
+     background-color: rgb(61,58,56);
+     margin-bottom: 70px;
+     padding: 5%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-evenly;
+     border-radius: 15px;
+
+}
+#login{
+    height: 40%;
+    justify-content: center;
+}
+#or{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-top: 3%;
+}
+#loginmessageInput {
+    width: 100%;
+    height: 40px; 
+    margin-bottom: 20px;
+    border-radius: 10px;
+    outline:  none;
+    background-color: #201e1d; 
+    color: white; 
+    border: none; 
+    padding: 10px;
+    font-size: 16px;
+}
+#loginmessageInput::placeholder{
+    color: white;
+}
+#previousMove{
+    height: 80%;
+    width: 100%;
+    background-color: #302e2b;
+    border-radius: 15px;
+    padding: 15px;
+    overflow-y: auto;
+}
+#previousMove::-webkit-scrollbar {
+    display: none;
+}
+.moveConatainer{
+    display: flex;
+}
+.move{
+    width: 50%;
+    text-align: center;
+    color: white;
+    font-size: 32px;
+}
+#messageBox{
+    width: 70%;
+    height: 25%;
+    background-color:rgb(61,58,56)  ;
+    display: block;
+    border-radius: 15px;
+    /* flex-direction: column; */
+}
+#messageContainer{
+    flex-grow: 1;
+    height: 60%;
+    width: 90%;
+    margin: 3% 5% 0% 5% ;
+    background-color:#302e2b;
+    border-radius: 15px;
+    padding: 10px;
+    /* color: rgb(74, 202, 39); */
+    color: rgb(80, 220, 41);
+    font-size: large;
+    overflow-y: auto;
+}
+#messageContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.row {
+    height: 12.5%;
+    display: flex;
+}
+.square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.white {
+    width: 12.5%;
+    height: 100%;
+    background-color: #eeeed2;
+}
+
+.black {
+    width: 12.5%;
+    height: 100%;
+    background-color: #769656;
+
+}
+.img{
+    width: 100%;
+    height: 100%;
+}
+
+/* here i am making class for bublle for highlighting the square */
+.bubble{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgb(120, 105, 105);
+}
+/* .yellow{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 0, 0.235);
+    position: absolute;
+    top: 0;
+    left: 0;
+   
+} */
+
+
+.red-cross::before, .red-cross::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.25);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+ .red-cross::after {
+    transform: translateX(-50%) rotate(-45deg);
+    background-color: red;
+}
+.red-cross::before{
+    background-color: red;
+}
+.checkmate-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 24px;
+    z-index: 10;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+
+#chatContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+}
+
+#messageInput {
+    width: 80%;
+    height: 30%; 
+    border-radius: 15px;
+    outline:  none;
+    background-color: #201e1d; 
+    color: white; 
+    border: none; 
+    padding: 10px;
+    font-size: 16px;
+}
+
+#messageInput::placeholder {
+    color: white; 
+}
+
+#sendButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.sendIcon {
+    width: 30px; 
+    height: 30px;
+}
+/* css for time selection */
+#timerDropdownContainer {
+    position: relative;
+    width: 200px;
+    font-family: Arial, sans-serif;
+}
+
+
+#selectedTimer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #201e1d;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.timerIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#dropdownOptions {
+    position: absolute;
+    top: 100%;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    left: 0;
+    width: 100%;
+    background-color: rgb(97, 92, 88);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdownItem {
+    padding: 10px;
+    cursor: pointer;
+    color:white;
+}
+
+.dropdownItem:hover {
+    background-color: rgb(162, 172, 153);
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/*play button */
+#play-button ,#play-ai-button{
+    background-color: rgb(129, 183, 77); 
+    color: white; 
+    font-size: 20px; 
+    font-weight: bold;
+    margin-top: 5%;
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+#play-ai-button{
+    margin-top: 3%;
+    font-size: 15px;
+}
+.play-button:hover {
+    background-color: rgb(100, 150, 60); 
+}
+
+/* Add these media queries at the end of your existing CSS */
+
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    /* Before match starts */
+    #section1 {
+        display: none;  /* Hide chess board initially */
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    #section2 {
+        width: 100%;
+        height: 100vh;
+        padding: 0 20px;
+    }
+
+    #timerContainer {
+        width: 100%;
+        margin: 20px 0;
+        display: none;
+    }
+
+    #timer {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    #chess_container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    #root {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 1/1;  /* Maintain square ratio */
+    }
+
+    .player1, .player2 {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    #playedMove, #login {
+        width: 90%;
+        max-width: 400px;
+        margin-bottom: 30px;
+    }
+
+    #messageBox {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    /* When match starts - add this class via JavaScript */
+    body.match-started #section1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    body.match-started .corner-text-bottom , .corner-text-bottom{
+        font-size: 1rem;
+    }
+
+    body.match-started #section2 {
+        display: none;
+    }
+
+    .timeText {
+        font-size: 32px;  /* Smaller font for mobile */
+    }
+
+    #messageContainer {
+        width: 95%;
+    }
+
+    .moveConatainer {
+        justify-content: center;
+    }
+
+    .move {
+        font-size: 24px;
+    }
+
+    /* Adjust square sizes for responsive board */
+    .square {
+        width: 12.5%;
+        height: auto;
+        position: relative;
+    }
+
+    .square::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;  /* Maintain square aspect ratio */
+    }
+
+    .square img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Adjust checkmate message for mobile */
+    .checkmate-message {
+        width: 90%;
+        max-width: 300px;
+        font-size: 20px;
+        padding: 15px;
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media screen and (max-width: 380px) {
+    .timeText {
+        font-size: 28px;
+    }
+
+    #timer {
+        width: 90%;
+    }
+
+    .move {
+        font-size: 20px;
+    }
+}
